@@ -40,8 +40,27 @@ header h2 {
     margin:0px !important; 
   }
 
-  .tab-content {
+.tab-content {
       border: 1px solid #DDD;
       border-top: none;
       padding: 10px;
   }
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel {
+    border: solid 1.5em purple;
+}
+
+.homeCarouselColor {
+    background-color: purple!important;
+    padding: .2rem;
+}
+
+.campsiteHeader {
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 1.5rem;
+}
