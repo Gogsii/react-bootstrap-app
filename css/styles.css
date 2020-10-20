@@ -64,3 +64,10 @@ header h2 {
     text-align: center;
     padding-top: 1.5rem;
 }
+
+#carouselButtons {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+}
