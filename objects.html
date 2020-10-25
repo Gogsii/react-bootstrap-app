@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+
+    <script>
+        const person = {
+            name: {
+                first: "Bob", 
+                last: "Smith"
+            },
+            age: 32,
+            gender: "male",
+            interests: ["music", "skiing"],
+            bio: function () {
+                alert(this.name.first + " " + this.name.last + " is " + this.age + " years old. He likes " + this.interests[0] + " and " + this.interests[1] + ".");
+            },
+            greeting: function() {
+                alert("Hi I\'m " + this.name.first + " !"); 
+            },
+            greetingTwo: function() {
+                alert("Hello, I am a greeting coming straight from inside an object you created, called " + this + ". And inside of here is " + this.name +
+                " who is " + this.age + " years old. His interests are " + this.interests[0] + " and " + this.interests[1] + " so yeah thats about it.")
+            },
+        };
+        let myDataName = "height";
+        let myDataValue = "1.75m";
+        person[myDataName] = myDataValue;
+
+        //-----------------------------------------------------------------------------------------------//
+
+        //this is a constructor called Shape. it's merely a function by which you can create new objects.
+        //to create a new object using it you simply say -> const variableName = new Shape("objectName", #, #)
+        //then that object is created and you can start manipulating it with the dot method objectName.newProperty or objectName.newMethod
+        //but you CANNOT use the dot method on a constructor to add a new property or method, you have to add it into the original function itself
+        //you CAN however use the .prototype on an object constructor to add a property and/or method in as you will see below
+
+        function Shape(name, sides, sideLength) {
+            this.name = name;
+            this.sides = sides;
+            this.sideLength = sideLength;
+        }
+
+        //here we are using the .prototype property on the Shape object constructor to add a new method called calcPerimeter()
+        //you can use the prototype property to add properties as well, not just methods.
+        //Only modify your own prototypes. Never modify the prototypes of standard JavaScript objects.
+
+        Shape.prototype.calcPerimeter = function() {
+            console.log(this.sides * this.sideLength);
+        }
+
+        //here we are constructing a new object called square, we are using the Shape object constructor to do this
+        //passing in the name of "square" and the values of 5 and 5 for sides and sideLength per constructors parameters
+
+        const square = new Shape("square", 5, 5);
+        square.calcPerimeter();
+
+        square.eyes = "blue";
+        console.log(square.eyes);
+        console.log(square.sides);
+        console.log(square.name);
+
+        //here we are constructing a new object called triangle, we are using the Shape object constructor to do this
+        const triangle = new Shape("triangle", 3, 3);
+        triangle.calcPerimeter();
+        
+    </script>
+</html>
